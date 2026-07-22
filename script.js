@@ -222,6 +222,11 @@ if (priceFilter) {
 
         const items = document.querySelectorAll(".reveal");
 
+        if (!("IntersectionObserver" in window)) {
+            items.forEach(item => item.classList.add("show"));
+            return;
+        }
+
         const observer = new IntersectionObserver(entries => {
 
             entries.forEach(entry => {
@@ -270,7 +275,7 @@ if (priceFilter) {
     // SERVICE WORKER
     //==============================
 
-    if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
 
         window.addEventListener("load", () => {
 

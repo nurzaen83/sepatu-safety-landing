@@ -1,3 +1,31 @@
+.product-grid{
+    display:grid;
+    gap:24px;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    padding:0;
+    margin:0;
+}
+
+.product-card{
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 16px 40px rgba(0,0,0,.08);
+    display:flex;
+    flex-direction:column;
+}
+
+.product-card img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:24px;
+}
+
 .search-box{
 
 width:100%;
