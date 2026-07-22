@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ANAK-PROYEK Premium 2026</title>
+
+    <meta name="description"
+        content="Rekomendasi Safety Shoes, Sneakers Pria, Sneakers Wanita dan Sepatu Import terbaik.">
+
+    <meta name="theme-color" content="#ff6b00">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="assets/icons/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img src="assets/logo/logo-anak-proyek.png" alt="Logo">
+
+        <span>ANAK-PROYEK</span>
+
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#kategori">Kategori</a>
+
+        <a href="#produk">Produk</a>
+
+        <a href="#kontak">Kontak</a>
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Sepatu Tangguh
+
+            Untuk Pekerja Modern
+
+        </h1>
+
+        <p>
+
+            Temukan rekomendasi Safety Shoes dan Sneakers terbaik
+            untuk proyek, kerja lapangan, dan aktivitas sehari-hari.
+
+        </p>
+
+        <a href="#produk" class="btn-primary">
+
+            Lihat Produk
+
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="assets/images/worker-safety.jpg"
+             alt="Safety Shoes">
+
+    </div>
+
+</section>
+
+<!-- FILTER -->
+
+<section id="kategori">
+
+    <h2>Kategori Produk</h2>
+
+    <div class="filter-buttons">
+
+        <button class="active" data-category="all">
+
+            Semua
+
+        </button>
+
+        <button data-category="safety">
+
+            Safety Shoes
+
+        </button>
+
+        <button data-category="sneakers-pria">
+
+            Sneakers Pria
+
+        </button>
+
+        <button data-category="sneakers-wanita">
+
+            Sneakers Wanita
+
+        </button>
+
+        <button data-category="import">
+
+            Sepatu Import
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- PRODUK -->
+ 
+<input
+    type="text"
+    id="search-input"
+    placeholder="Cari produk..."
+    class="search-box">
+
+<section id="produk">
+
+    <h2>Produk Pilihan</h2>
+
+    <div
+        id="product-container"
+        class="product-grid">
+
+    </div>
+
+</section>
+
+<!-- TESTIMONI -->
+
+<section class="testimonial">
+
+    <h2>
+
+        Kenapa Memilih ANAK-PROYEK?
+
+    </h2>
+
+    <div class="testimonial-box">
+
+        <p>
+
+            ⭐⭐⭐⭐⭐
+
+        </p>
+
+        <p>
+
+            Ribuan pekerja mempercayakan pilihan safety shoes
+            dan sneakers terbaik melalui ANAK-PROYEK.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>
+
+            Siap Upgrade Sepatu Anda?
+
+        </h2>
+
+        <p>
+
+            Klik produk favorit Anda dan dapatkan penawaran terbaik
+            melalui Shopee Affiliate.
+
+        </p>
+
+        <a
+            href="#produk"
+            class="btn-primary">
+
+            Belanja Sekarang
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="kontak">
+
+    <div>
+
+        <h3>
+
+            ANAK-PROYEK Premium 2026
+
+        </h3>
+
+        <p>
+
+            Safety Shoes • Sneakers • Sepatu Import
+
+        </p>
+
+    </div>
+
+    <div>
+
+        © 2026 ANAK-PROYEK
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+if("serviceWorker" in navigator){
+
+window.addEventListener("load",()=>{
+
+navigator.serviceWorker.register("service-worker.js");
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>

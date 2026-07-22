@@ -1,0 +1,174 @@
+[
+  {
+    "id": 1,
+    "name": "RUBTRACK Terra Safety",
+    "category": "safety",
+    "image": "assets/images/rubtrack.jpg",
+    "description": "Safety shoes premium dengan outsole anti slip dan steel toe.",
+    "price": "Rp359.000",
+    "link": "https://s.shopee.co.id/9AN9QbogUC"
+  },
+  {
+    "id": 2,
+    "name": "LARNMERN Safety Shoes",
+    "category": "safety",
+    "image": "assets/images/larnmern.jpg",
+    "description": "Sepatu safety steel toe ringan dan nyaman dipakai seharian.",
+    "price": "Rp399.000",
+    "link": "https://s.shopee.co.id/9UzzpSGke7"
+  },
+  {
+    "id": 3,
+    "name": "Lavio Safety Sneakers",
+    "category": "safety",
+    "image": "assets/images/lavio.jpg",
+    "description": "Safety sneakers modern dengan perlindungan steel toe.",
+    "price": "Rp299.000",
+    "link": "https://s.shopee.co.id/50XaTJMKgf"
+  },
+  {
+    "id": 4,
+    "name": "SNID SZ2020 Import Wanita",
+    "category": "sneakers-wanita",
+    "image": "assets/images/SNID SZ2020 Import Wanita.jpg",
+    "description": "Sneakers Sepatu wanita Sport Shoes Canvas.",
+    "price": "Rp76.000",
+    "link": "https://s.shopee.co.id/6ffrncw6GB"
+  },
+  {
+    "id": 5,
+    "name": "Gressyoi Sneakers",
+    "category": "safety",
+    "image": "assets/images/gressyoi.jpg",
+    "description": "Sneakers pria dengan desain kasual modern.",
+    "price": "Rp672.000",
+    "link": "https://s.shopee.co.id/2qT5tIi6hM"
+  },
+  {
+    "id": 6,
+    "name": "ZAVISION Casual Shoes",
+    "category": "safety",
+    "image": "assets/images/zavision.jpg",
+    "description": "Sepatu Safety Ujung Besi Sepatu Proyek Adventure.",
+    "price": "Rp112.500",
+    "link": "https://s.shopee.co.id/2qT5tMpuQi"
+  },
+  {
+    "id": 7,
+    "name": "HIPZO Sneakers",
+    "category": "safety",
+    "image": "assets/images/hipzo.jpg",
+    "description": "Sneakers sporty untuk aktivitas kerja maupun santai.",
+    "price": "Rp73.000",
+    "link": "https://s.shopee.co.id/60Q7fDUri6"
+  },
+  {
+    "id": 8,
+    "name": "ANBTEC Safety Shoes",
+    "category": "safety",
+    "image": "assets/images/anbtec.jpg",
+    "description": "Safety shoes anti slip dengan desain modern.",
+    "price": "Rp317.340",
+    "link": "https://s.shopee.co.id/9zwJqa22u2"
+  },
+  
+  {
+    "id": 9,
+    "name": "AEISO Sepatu Formal Non Formal",
+    "category": "safety",
+    "image": "assets/images/black.jpg",
+    "description": "Sepatu Casual Extra Penguat di ujung Sepatu.",
+    "price": "Rp288.949",
+    "link": "https://s.shopee.co.id/2qT5tMpuQi"
+  },
+  {
+    "id": 10,
+    "name": "BLYNEE Sepatu Safety Pria Kulit Asli",
+    "category": "safety",
+    "image": "assets/images/blynee.jpg",
+    "description": "Sepatu safety unisex Kulit Asli Ujung Besi Anti Slip.",
+    "price": "Rp268.000",
+    "link": "https://s.shopee.co.id/7KvVFVjqYG"
+  },
+  {
+    "id": 11,
+    "name": "Altraze Cobalt Pro Sneakers Casual Pria",      
+    "category": "sneakers-pria",
+    "image": "assets/images/ALTRAZE Sneakers Pria.jpg",
+    "description": "Sepatu sneakers unisex Kasual Running Jogging.",
+    "price": "Rp179.500",
+    "link": "https://s.shopee.co.id/1gHBpmuig7"
+  },
+  {
+    "id": 12,
+    "name": "FILMORA Full Black Running",
+    "category": "sneakers-pria",
+    "image": "assets/images/FILMORA Sneakers Pria Running.jpg",
+    "description": "Sepatu Running Pria Full Black Sport",
+    "price": "Rp214.000",
+    "link": "https://s.shopee.co.id/6pzHzKmYZf"
+  },
+  {
+    "id": 13,
+    "name": "EVR Giselle Slip on Sneakers Wanita",
+    "category": "sneakers-wanita",
+    "image": "assets/images/EVR Giselle Sneakers Wanita.jpg",
+    "description": "Sneakers wanita dengan desain slip-on yang nyaman dan stylish.",
+    "price": "Rp70.000",
+    "link": "https://s.shopee.co.id/7fYOyunOgA"
+  },
+  {
+    "id": 14,
+    "name": "CMATRAV Slip on Sneakers Wanita",
+    "category": "sneakers-wanita",
+    "image": "assets/images/CMATRAV Sneakers Wanita.jpg",
+    "description": "Sneakers wanita Slip-on Sepatu olahraga.",
+    "price": "Rp145.800",
+    "link": "https://s.shopee.co.id/6ffrnY9OTi"
+  },
+  {
+    "id": 15,
+    "name": "Gio Saverino Sneakers Pria Hitam Joker",
+    "category": "sneakers-pria",
+    "image": "assets/images/GIO SAVERINO Sneakers Pria.jpg",
+    "description": "Sepatu safety unisex Kulit Asli Ujung Besi Anti Slip.",
+    "price": "Rp152.010",
+    "link": "https://s.shopee.co.id/30mZQT12Nj"
+  },
+  {
+    "id": 16,
+    "name": "Pluvia NIKITA Flatshoes Sneakers Wanita",
+    "category": "sneakers-wanita",
+    "image": "assets/images/PLUVIA NIKITA Flatshoes.jpg",
+    "description": "Sneakers Flatshoes wanita Balet Suede.",
+    "price": "Rp149.400",
+    "link": "https://s.shopee.co.id/1gHBqFDj4M"
+  },
+  {
+    "id": 17,
+    "name": "Reyora Sepatu Flatshoes Wanita Korea",
+    "category": "sneakers-wanita",
+    "image": "assets/images/REYORA Flatshoes.jpg",
+    "description": "Flatshoes Jaring Wanita Korea Aurel.",
+    "price": "Rp136.080",
+    "link": "https://s.shopee.co.id/7VEymoDdeC"
+  },
+  {
+    "id": 18,
+    "name": "Sneakers Import unisex Running",
+    "category": "import",
+    "image": "assets/images/Sneakers Import unisex Running.jpg",
+    "description": "Sneakers unisex dengan desain kasual modern.",
+    "price": "Rp79.200",
+    "link": "https://s.shopee.co.id/4VbNDrJeU1"
+  },
+  {
+    "id": 19,
+    "name": "Working Sneakers Import Pria Running",
+    "category": "import",
+    "image": "assets/images/Working Sneakers For You Import.jpg",
+    "description": "Sneakers Pria Running Import dengan desain kasual modern.",
+    "price": "Rp114.363",
+    "link": "https://s.shopee.co.id/AAFjyDVWYz"
+  }
+]
