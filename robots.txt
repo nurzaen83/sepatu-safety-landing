@@ -11,4 +11,4 @@ Allow: /
 
 # Sitemap Location
 
-Sitemap: https://nurzaen83.github.io/ANAK-PROYEK-Premium-2026-v2/sitemap.xml
+Sitemap: https://nurzaen83.github.io/sepatu-safety-landing/sitemap.xml
