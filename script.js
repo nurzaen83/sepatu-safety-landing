@@ -19,10 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const response = await fetch("./products.json");
+            console.log("[DEBUG] Loading products from", window.location.href, "fetch path: products.json");
+            const response = await fetch("products.json");
 
             if (!response.ok)
-                throw new Error("products.json tidak ditemukan");
+                throw new Error(`products.json tidak ditemukan (status ${response.status})`);
 
             products = await response.json();
 

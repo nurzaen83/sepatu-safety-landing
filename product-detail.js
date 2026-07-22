@@ -28,7 +28,7 @@ async function loadDetail(){
 
 const response =
 await fetch(
-"./products.json"
+"products.json"
 );
 
 
