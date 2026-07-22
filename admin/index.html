@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>
+ANAK-PROYEK Admin Dashboard
+</title>
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+🚧 ANAK-PROYEK Admin
+</h1>
+
+<p>
+Product Management Dashboard
+</p>
+
+</header>
+
+
+
+<section class="form-box">
+
+
+<input 
+id="name"
+placeholder="Nama Produk">
+
+
+<select id="category">
+
+<option value="safety">
+Safety Shoes
+</option>
+
+<option value="sneakers-pria">
+Sneakers Pria
+</option>
+
+<option value="sneakers-wanita">
+Sneakers Wanita
+</option>
+
+<option value="import">
+Sepatu Import
+</option>
+
+</select>
+
+
+
+<input 
+id="image"
+placeholder="Path gambar">
+
+
+<input 
+id="price"
+placeholder="Harga">
+
+
+<input 
+id="link"
+placeholder="Link Shopee">
+
+
+<textarea 
+id="description"
+placeholder="Deskripsi produk">
+</textarea>
+
+
+<button onclick="saveProduct()">
+
+Simpan Produk
+
+</button>
+
+
+</section>
+
+
+
+
+<section>
+
+<h2>
+Daftar Produk
+</h2>
+
+
+<div id="product-list">
+
+</div>
+
+
+</section>
+
+
+
+
+<button class="export"
+onclick="exportJSON()">
+
+Download products.json
+
+</button>
+
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>

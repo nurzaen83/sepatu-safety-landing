@@ -128,12 +128,21 @@
 </section>
 
 <!-- PRODUK -->
- 
+
 <input
     type="text"
     id="search-input"
-    placeholder="Cari produk..."
-    class="search-box">
+    class="search-box"
+    placeholder="Cari produk...">
+ 
+<select id="price-filter" class="search-box">
+    <option value="all">Semua Harga</option>
+    <option value="0-100000">< Rp100.000</option>
+    <option value="100000-200000">Rp100.000 - Rp200.000</option>
+    <option value="200000-300000">Rp200.000 - Rp300.000</option>
+    <option value="300000-500000">Rp300.000 - Rp500.000</option>
+    <option value="500000+">> Rp500.000</option>
+</select>
 
 <section id="produk">
 
