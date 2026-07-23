@@ -1,3 +1,42 @@
+.navbar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    padding:20px 0 10px;
+}
+
+.navbar nav{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.navbar nav a{
+    color:#111;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.Logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.Logo img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+}
+
+.Logo span{
+    font-size:1.2rem;
+    font-weight:700;
+    color:#111;
+}
+
 .product-grid{
     display:grid;
     gap:24px;
