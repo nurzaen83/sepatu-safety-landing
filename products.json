@@ -170,5 +170,14 @@
     "description": "Sneakers Pria Running Import dengan desain kasual modern.",
     "price": "Rp114.363",
     "link": "https://s.shopee.co.id/AAFjyDVWYz"
+  },
+  {
+    "id": 20,
+    "name": "Sepatu Slip on Wanita Terbaru",
+    "category": "sneakers-wanita",
+    "image": "assets/images/moshimo.jpg",
+    "description": "Moshimo Sepatu Slip on Wanita Terbaru dengan desain kasual modern.",
+    "price": "Rp67.316",
+    "link": "https://s.shopee.co.id/190MwI7ny"
   }
 ]
