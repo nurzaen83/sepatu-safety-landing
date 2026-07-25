@@ -14,10 +14,8 @@
     <meta name="theme-color" content="#ff6b00">
 
     <link rel="manifest" href="manifest.json">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="preload" as="image" href="assets/images/worker-safety.webp" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -28,7 +26,7 @@
 
     <div class="Logo">
 
-        <img src="assets/images/logo-anak-proyek.jpg" alt="ANAK PROYEK">
+        <img src="assets/images/logo-anak-proyek.webp" alt="ANAK PROYEK" width="56" height="56" decoding="async">
 
         <span>ANAK-PROYEK</span>
 
@@ -80,7 +78,7 @@
     <div class="hero-image">
 
         <img src="assets/images/worker-safety.webp"
-             alt="Safety Shoes">
+             alt="Safety Shoes" width="1200" height="728" fetchpriority="high" decoding="async">
 
     </div>
 
@@ -154,7 +152,7 @@
     </div>
 
     <article class="featured-product">
-        <img src="assets/images/fedosaka.jpg" alt="FED Osaka Sneakers Hitam Krem">
+        <img src="assets/images/fedosaka.jpg" alt="FED Osaka Sneakers Hitam Krem" loading="lazy" decoding="async">
         <div class="featured-product-content">
             <p class="featured-product-label">Produk unggulan Hari Ini</p>
             <h3>🔥 FED Osaka Sneakers</h3>
@@ -266,27 +264,7 @@
 
 </footer>
 
-<script src="script.js?v=1"></script>
-
-<script>
-
-if ("serviceWorker" in navigator) {
-    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-            registrations.forEach(registration => {
-                registration.unregister();
-            });
-        }).catch(err => {
-            console.log('SW unregister failed', err);
-        });
-    } else {
-        window.addEventListener("load", () => {
-            navigator.serviceWorker.register("service-worker.js");
-        });
-    }
-}
-
-</script>
+<script src="script.js" defer></script>
 
 </body>
 

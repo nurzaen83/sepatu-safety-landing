@@ -1,112 +1,33 @@
-const CACHE_NAME =
-"anak-proyek-premium-v2026";
-
-
-const FILES_TO_CACHE = [
-
-    "/",
-    "/index.html",
-    "/style.css",
-    "/script.js",
-    "/manifest.json"
-
+const CACHE_NAME = "anak-proyek-v3";
+const APP_SHELL = [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./script.js",
+    "./products.json",
+    "./manifest.json",
+    "./assets/images/worker-safety.webp"
 ];
 
-
-
-self.addEventListener(
-"install",
-event => {
-
-
-    event.waitUntil(
-
-        caches.open(
-            CACHE_NAME
-        )
-        .then(
-            cache =>
-            cache.addAll(
-                FILES_TO_CACHE
-            )
-        )
-
-    );
-
-
+self.addEventListener("install", event => {
+    event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
+    self.skipWaiting();
 });
 
-
-
-
-
-self.addEventListener(
-"activate",
-event=>{
-
-
+self.addEventListener("activate", event => {
     event.waitUntil(
-
-        caches.keys()
-        .then(
-            keys =>
-
-            Promise.all(
-
-                keys.map(
-
-                    key => {
-
-                        if(
-                        key !== CACHE_NAME
-                        ){
-
-                            return caches.delete(
-                                key
-                            );
-
-                        }
-
-                    }
-
-                )
-
-            )
-
-        )
-
+        caches.keys().then(keys => Promise.all(keys
+            .filter(key => key !== CACHE_NAME)
+            .map(key => caches.delete(key))))
     );
-
-
+    self.clients.claim();
 });
 
-
-
-
-
-self.addEventListener(
-"fetch",
-event=>{
-
-
-    event.respondWith(
-
-        caches.match(
-            event.request
-        )
-        .then(
-
-            response =>
-
-            response ||
-
-            fetch(
-                event.request
-            )
-
-        )
-
-    );
-
-
+self.addEventListener("fetch", event => {
+    if (event.request.method !== "GET") return;
+    if (event.request.mode === "navigate") {
+        event.respondWith(fetch(event.request).catch(() => caches.match("./index.html")));
+        return;
+    }
+    event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request)));
 });
