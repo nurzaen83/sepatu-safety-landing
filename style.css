@@ -245,6 +245,19 @@ section.testimonial h2 {
     font-size:2rem;
 }
 
+#kategori {
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.filter-bar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+}
+
 .filter-buttons {
     display:flex;
     flex-wrap:wrap;
@@ -267,6 +280,12 @@ section.testimonial h2 {
     background:#111;
     color:#fff;
     border-color:#111;
+}
+
+.filter-bar .search-box {
+    width:auto;
+    max-width:260px;
+    margin:0;
 }
 
 .produk-header {
@@ -518,6 +537,16 @@ footer p {
     .produk-header {
         flex-direction:column;
         align-items:flex-start;
+    }
+
+    .filter-bar {
+        align-items:stretch;
+        flex-direction:column;
+    }
+
+    .filter-bar .search-box {
+        width:100%;
+        max-width:100%;
     }
 
     .produk-header .search-box {

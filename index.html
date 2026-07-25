@@ -99,38 +99,23 @@
 
     <h2>Kategori Produk</h2>
 
-    <div class="filter-buttons">
+    <div class="filter-bar">
+        <div class="filter-buttons">
+            <button class="active" data-category="all">Semua</button>
+            <button data-category="safety">Safety Shoes</button>
+            <button data-category="sneakers-pria">Sneakers Pria</button>
+            <button data-category="sneakers-wanita">Sneakers Wanita</button>
+            <button data-category="import">Sepatu Import</button>
+        </div>
 
-        <button class="active" data-category="all">
-
-            Semua
-
-        </button>
-
-        <button data-category="safety">
-
-            Safety Shoes
-
-        </button>
-
-        <button data-category="sneakers-pria">
-
-            Sneakers Pria
-
-        </button>
-
-        <button data-category="sneakers-wanita">
-
-            Sneakers Wanita
-
-        </button>
-
-        <button data-category="import">
-
-            Sepatu Import
-
-        </button>
-
+        <select id="price-filter" class="search-box" aria-label="Filter harga">
+            <option value="all">Semua Harga</option>
+            <option value="0-100000">< Rp100.000</option>
+            <option value="100000-200000">Rp100.000 - Rp200.000</option>
+            <option value="200000-300000">Rp200.000 - Rp300.000</option>
+            <option value="300000-500000">Rp300.000 - Rp500.000</option>
+            <option value="500000+">> Rp500.000</option>
+        </select>
     </div>
 
 </section>
@@ -141,14 +126,6 @@
 
     <div class="produk-header">
         <h2>Produk Pilihan</h2>
-        <select id="price-filter" class="search-box">
-            <option value="all">Semua Harga</option>
-            <option value="0-100000">< Rp100.000</option>
-            <option value="100000-200000">Rp100.000 - Rp200.000</option>
-            <option value="200000-300000">Rp200.000 - Rp300.000</option>
-            <option value="300000-500000">Rp300.000 - Rp500.000</option>
-            <option value="500000+">> Rp500.000</option>
-        </select>
     </div>
 
     <article class="featured-product">
