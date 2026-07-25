@@ -38,7 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const fragment = document.createDocumentFragment();
-        list.forEach(product => {
+        const productsByPrice = [...list].sort(
+            (firstProduct, secondProduct) =>
+                getNumericPrice(firstProduct.price) - getNumericPrice(secondProduct.price)
+        );
+
+        productsByPrice.forEach(product => {
             const card = document.createElement("article");
             card.className = "product-card reveal";
             card.innerHTML = `
