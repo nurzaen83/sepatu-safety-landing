@@ -473,6 +473,26 @@ section.testimonial h2 {
     box-shadow:0 22px 48px rgba(15,23,42,.08);
 }
 
+.benefit-grid {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+    margin-top:24px;
+}
+
+.benefit-card {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:92px;
+    padding:16px;
+    border-radius:18px;
+    background:#f8fafc;
+    box-shadow:0 12px 28px rgba(15,23,42,.07);
+    line-height:1.45;
+}
+
 footer {
     background:#111;
     color:#f8fafc;
@@ -510,6 +530,10 @@ footer p {
 
     .featured-product img {
         height:280px;
+    }
+
+    .benefit-grid {
+        grid-template-columns:repeat(2, 1fr);
     }
 }
 
@@ -557,5 +581,9 @@ footer p {
 
     .featured-product h3 {
         font-size:1.65rem;
+    }
+
+    .benefit-grid {
+        grid-template-columns:1fr;
     }
 }
