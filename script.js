@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productContainer = document.getElementById("product-container");
+    const featuredProduct = document.getElementById("featured-product");
+    const featuredProductImage = document.getElementById("featured-product-image");
+    const featuredProductName = featuredProduct?.querySelector("h3");
+    const featuredProductDescription = document.getElementById("featured-product-description");
+    const featuredProductLink = document.getElementById("featured-product-link");
     const filterButtons = document.querySelectorAll(".filter-buttons button");
     const priceFilter = document.getElementById("price-filter");
     const navbar = document.querySelector(".navbar");
@@ -64,6 +69,22 @@ document.addEventListener("DOMContentLoaded", () => {
         activateReveal(productContainer.querySelectorAll(".reveal"));
     }
 
+    function renderFeaturedProduct(list) {
+        if (!featuredProduct || !list.length) return;
+
+        // Produk dengan ID terbesar adalah entri terbaru dari dashboard/admin.
+        const latestProduct = list.reduce((latest, product) =>
+            Number(product.id) > Number(latest.id) ? product : latest
+        );
+
+        featuredProductImage.src = latestProduct.image;
+        featuredProductImage.alt = latestProduct.name;
+        featuredProductName.textContent = `🔥 ${latestProduct.name}`;
+        featuredProductDescription.textContent = latestProduct.description;
+        featuredProductLink.href = latestProduct.link;
+        featuredProduct.hidden = false;
+    }
+
     function filterProducts() {
         const range = priceFilter?.value || "all";
         const filtered = products.filter(product => {
@@ -80,9 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadProducts() {
         try {
-            const response = await fetch("products.json");
-            if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
-            products = await response.json();
+            const savedProducts = localStorage.getItem("anak_proyek_products");
+            if (savedProducts) {
+                products = JSON.parse(savedProducts);
+            } else {
+                const response = await fetch("products.json");
+                if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
+                products = await response.json();
+            }
+            renderFeaturedProduct(products);
             renderProducts(products);
         } catch (error) {
             if (productContainer) {

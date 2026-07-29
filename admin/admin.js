@@ -26,7 +26,7 @@ else{
 
 const response =
 await fetch(
-"../data/products.json"
+"../products.json"
 );
 
 
