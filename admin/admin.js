@@ -1,6 +1,67 @@
 let products = [];
 
 let editIndex = null;
+let pendingImageUrl = "";
+
+function getImageSrc(image) {
+
+if (!image) {
+
+return "";
+
+}
+
+if (image.startsWith("data:") || image.startsWith("http") || image.startsWith("/")) {
+
+return image;
+
+}
+
+return `../${image}`;
+
+}
+
+function getUploadBaseUrl() {
+
+return "http://localhost:3000";
+
+}
+
+async function uploadImage(file) {
+
+if (!file) {
+
+return "";
+
+}
+
+const formData = new FormData();
+
+formData.append("image", file);
+
+try {
+
+const response = await fetch(`${getUploadBaseUrl()}/upload`, {
+
+method: "POST",
+
+body: formData
+
+});
+
+const data = await response.json();
+
+return data.url || "";
+
+} catch (error) {
+
+console.error("Upload gagal", error);
+
+return "";
+
+}
+
+}
 
 
 
@@ -45,14 +106,25 @@ displayProducts();
 
 
 
-function saveProduct(){
+async function saveProduct(){
 
+
+const imageInput = document.getElementById("image");
+
+let imageValue = pendingImageUrl || imageInput.dataset.currentValue || "";
+
+if (imageInput.files && imageInput.files[0] && !pendingImageUrl) {
+
+imageValue = await uploadImage(imageInput.files[0]);
+pendingImageUrl = imageValue;
+
+}
 
 const product={
 
 
 id:
-Date.now(),
+editIndex !== null ? products[editIndex].id : Date.now(),
 
 
 name:
@@ -63,8 +135,7 @@ category:
 document.getElementById("category").value,
 
 
-image:
-document.getElementById("image").value,
+image:imageValue,
 
 
 price:
@@ -144,7 +215,7 @@ box.innerHTML += `
 <div class="card">
 
 
-<img src="../${product.image}">
+<img src="${getImageSrc(product.image)}">
 
 
 <h3>
@@ -191,6 +262,44 @@ Hapus
 
 
 
+window.attachImageAutoUpload = function attachImageAutoUpload() {
+
+const imageInput = document.getElementById("image");
+
+imageInput.addEventListener("change", async () => {
+
+if (!imageInput.files || !imageInput.files[0]) return;
+
+const file = imageInput.files[0];
+
+const preview = document.getElementById("image-preview");
+
+if (preview) {
+
+preview.src = URL.createObjectURL(file);
+preview.style.display = "block";
+
+}
+
+const uploadStatus = document.createElement("p");
+uploadStatus.textContent = "Mengunggah foto...";
+uploadStatus.id = "upload-status";
+imageInput.parentNode.insertBefore(uploadStatus, imageInput.nextSibling);
+
+const uploadedUrl = await uploadImage(file);
+pendingImageUrl = uploadedUrl;
+
+const statusEl = document.getElementById("upload-status");
+if (statusEl) {
+
+statusEl.textContent = uploadedUrl ? "Foto berhasil diunggah" : "Upload gagal";
+
+}
+
+});
+
+}
+
 function editProduct(index){
 
 
@@ -202,7 +311,17 @@ document.getElementById("name").value=p.name;
 
 document.getElementById("category").value=p.category;
 
-document.getElementById("image").value=p.image;
+const imageInput = document.getElementById("image");
+imageInput.dataset.currentValue = p.image || "";
+imageInput.value = "";
+
+const preview = document.getElementById("image-preview");
+if (preview) {
+
+preview.src = p.image ? getImageSrc(p.image) : "";
+preview.style.display = p.image ? "block" : "none";
+
+}
 
 document.getElementById("price").value=p.price;
 
@@ -248,6 +367,9 @@ displayProducts();
 
 function clearForm(){
 
+const imageInput = document.getElementById("image");
+const preview = document.getElementById("image-preview");
+
 
 document
 .querySelectorAll(
@@ -257,6 +379,16 @@ document
 e=>e.value=""
 );
 
+imageInput.value = "";
+pendingImageUrl = "";
+imageInput.dataset.currentValue = "";
+
+if (preview) {
+
+preview.src = "";
+preview.style.display = "none";
+
+}
 
 }
 
