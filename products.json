@@ -71,7 +71,6 @@
     "price": "Rp317.340",
     "link": "https://s.shopee.co.id/9zwJqa22u2"
   },
-  
   {
     "id": 9,
     "name": "AEISO Sepatu Formal Non Formal",
@@ -92,7 +91,7 @@
   },
   {
     "id": 11,
-    "name": "Altraze Cobalt Pro Sneakers Casual Pria",      
+    "name": "Altraze Cobalt Pro Sneakers Casual Pria",
     "category": "sneakers-pria",
     "image": "assets/images/altraze.jpg",
     "description": "Sepatu sneakers unisex Kasual Running Jogging.",
@@ -341,8 +340,7 @@
     "description": "Sepatu Safety Sneakers Sport Rich Unisex Kevlar.",
     "price": "Rp377.000",
     "link": "https://s.shopee.co.id/9KgkOxuv2p"
-  }, 
-    
+  },
   {
     "id": 39,
     "name": "NEWMEEL 2.0 Sepatu Sneakers Unisex",
@@ -360,5 +358,14 @@
     "description": "Sepatu Running 910 Nineten Haze INFIKNIT 1.0- PUTIH/ABU.",
     "price": "Rp384.052",
     "link": "https://s.shopee.co.id/1Vy2UaPcLW"
+  },
+  {
+    "id": 1785563498174,
+    "name": "Working Trend ",
+    "category": "safety",
+    "image": "http://127.0.0.1:3000/uploads/1785563494474-workingtrend.jpg",
+    "price": "Rp.122.878",
+    "link": "https://s.shopee.co.id/W5VZ7pD0T",
+    "description": "Working Trend - Sepatu Safety Pria Ujung Besi Kode G - 26"
   }
 ]
