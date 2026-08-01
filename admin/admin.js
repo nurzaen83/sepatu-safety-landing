@@ -59,7 +59,20 @@ return "";
 
 }
 
+async function saveProductsToServer() {
+  const response = await fetch(`${getServerBaseUrl()}/save-products`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(products)
+  });
 
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `Gagal menyimpan produk ke server (${response.status})`);
+  }
+}
 
 async function loadProducts(){
 
@@ -160,6 +173,10 @@ if(editIndex !== null){
 
   try {
     await saveProductsToServer();
+    localStorage.setItem(
+      "anak_proyek_products",
+      JSON.stringify(products)
+    );
   } catch (error) {
     console.error("Gagal menyimpan ke server:", error);
     localStorage.setItem(
