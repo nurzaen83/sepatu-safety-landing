@@ -55,33 +55,38 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (url === '/upload' && req.method === 'POST') {
-    const boundary = req.headers['content-type']?.split('boundary=')[1];
-    if (!boundary) {
+    const contentType = req.headers['content-type'] || '';
+    const boundaryMatch = contentType.match(/boundary=(.+)$/);
+    if (!boundaryMatch) {
       sendJson(res, 400, { error: 'Boundary tidak ditemukan' });
       return;
     }
 
+    const boundary = `--${boundaryMatch[1]}`;
     const chunks = [];
     for await (const chunk of req) {
       chunks.push(chunk);
     }
 
     const body = Buffer.concat(chunks);
-    const boundaryBuffer = Buffer.from(`--${boundary}`);
-    const parts = body.split(boundaryBuffer);
+    const bodyText = body.toString('latin1');
+    const parts = bodyText.split(boundary);
     let fileName = '';
     let fileBuffer = Buffer.alloc(0);
 
     for (const part of parts) {
-      if (!part.includes(Buffer.from('filename='))) continue;
-      const headers = part.toString('binary').split('\r\n\r\n');
-      const contentDisposition = headers[0] || '';
-      const fileNameMatch = contentDisposition.match(/filename="([^"]+)"/);
+      if (!part.includes('filename=')) continue;
+      const headerEnd = part.indexOf('\r\n\r\n');
+      if (headerEnd === -1) continue;
+      const rawHeaders = part.slice(0, headerEnd);
+      const rawContent = part.slice(headerEnd + 4);
+      const fileNameMatch = rawHeaders.match(/filename="([^"]+)"/);
       if (fileNameMatch) {
         fileName = fileNameMatch[1];
       }
-      const fileContent = part.slice(part.indexOf('\r\n\r\n') + 4, part.length - 2);
-      fileBuffer = fileContent;
+      const contentEnd = rawContent.lastIndexOf('\r\n');
+      const content = contentEnd !== -1 ? rawContent.slice(0, contentEnd) : rawContent;
+      fileBuffer = Buffer.from(content, 'latin1');
       break;
     }
 

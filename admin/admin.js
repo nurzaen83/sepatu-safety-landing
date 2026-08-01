@@ -22,26 +22,14 @@ return `../${image}`;
 }
 
 function getServerBaseUrl() {
-
-if (window.location.origin && window.location.origin !== "null") {
-
-return window.location.origin;
-
-}
-
-const host = window.location.hostname || "localhost";
-
-return `http://${host}:3000`;
-
+  const host = window.location.hostname || "localhost";
+  return `http://${host}:3000`;
 }
 
 async function uploadImage(file) {
-
-if (!file) {
-
-return "";
-
-}
+  if (!file) {
+    return "";
+  }
 
 const formData = new FormData();
 
@@ -163,35 +151,22 @@ document.getElementById("description").value
 
 
 if(editIndex !== null){
+    products[editIndex]=product;
+    editIndex=null;
+  }
+  else{
+    products.push(product);
+  }
 
-products[editIndex]=product;
-
-editIndex=null;
-
-}
-
-else{
-
-products.push(product);
-
-}
-
-try {
-
-await saveProductsToServer();
-
-} catch (error) {
-
-localStorage.setItem(
-
-"anak_proyek_products",
-
-JSON.stringify(products)
-
-);
-
-}
-
+  try {
+    await saveProductsToServer();
+  } catch (error) {
+    console.error("Gagal menyimpan ke server:", error);
+    localStorage.setItem(
+      "anak_proyek_products",
+      JSON.stringify(products)
+    );
+  }
 
 
 clearForm();
