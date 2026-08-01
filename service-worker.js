@@ -39,6 +39,23 @@ self.addEventListener("fetch", event => {
         return;
     }
 
+    if (event.request.destination === "image" || event.request.url.includes("/assets/images/")) {
+        event.respondWith(
+            caches.match(event.request).then(cached => {
+                if (cached) return cached;
+                return fetch(event.request).then(response => {
+                    if (!response || response.status !== 200 || response.type !== "basic") {
+                        return response;
+                    }
+                    const copy = response.clone();
+                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+                    return response;
+                }).catch(() => caches.match("./assets/images/worker-safety.webp"));
+            })
+        );
+        return;
+    }
+
     if (event.request.mode === "navigate") {
         event.respondWith(fetch(event.request).catch(() => caches.match("./index.html")));
         return;
