@@ -21,9 +21,17 @@ return `../${image}`;
 
 }
 
-function getUploadBaseUrl() {
+function getServerBaseUrl() {
 
-return "http://localhost:3000";
+if (window.location.origin && window.location.origin !== "null") {
+
+return window.location.origin;
+
+}
+
+const host = window.location.hostname || "localhost";
+
+return `http://${host}:3000`;
 
 }
 
@@ -41,7 +49,7 @@ formData.append("image", file);
 
 try {
 
-const response = await fetch(`${getUploadBaseUrl()}/upload`, {
+const response = await fetch(`${getServerBaseUrl()}/upload`, {
 
 method: "POST",
 
@@ -68,35 +76,35 @@ return "";
 async function loadProducts(){
 
 
-let saved =
-localStorage.getItem(
-"anak_proyek_products"
-);
+try {
 
+const response = await fetch(`${getServerBaseUrl()}/products.json`);
 
+if (!response.ok) {
 
-if(saved){
-
-products =
-JSON.parse(saved);
+throw new Error("Produk tidak dapat dimuat.");
 
 }
 
-else{
+products = await response.json();
 
+} catch (error) {
 
-const response =
-await fetch(
-"../products.json"
-);
+const saved = localStorage.getItem("anak_proyek_products");
 
+if (saved) {
 
-products =
-await response.json();
+products = JSON.parse(saved);
 
+} else {
+
+console.error("Gagal memuat products.json:", error);
+
+products = [];
 
 }
 
+}
 
 
 displayProducts();
@@ -168,7 +176,11 @@ products.push(product);
 
 }
 
+try {
 
+await saveProductsToServer();
+
+} catch (error) {
 
 localStorage.setItem(
 
@@ -177,6 +189,8 @@ localStorage.setItem(
 JSON.stringify(products)
 
 );
+
+}
 
 
 

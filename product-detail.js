@@ -26,16 +26,17 @@ params.get(
 async function loadDetail(){
 
 
-const response =
-await fetch(
-"products.json"
-);
+const savedProducts = localStorage.getItem("anak_proyek_products");
+let products = [];
 
+if (savedProducts) {
+    products = JSON.parse(savedProducts);
+}
 
-
-const products =
-await response.json();
-
+if (!products.length) {
+    const response = await fetch("products.json");
+    products = await response.json();
+}
 
 
 const product =

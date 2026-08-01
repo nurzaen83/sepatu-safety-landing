@@ -101,21 +101,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadProducts() {
         try {
+            const response = await fetch("products.json");
+            if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
+            products = await response.json();
+        } catch (error) {
             const savedProducts = localStorage.getItem("anak_proyek_products");
             if (savedProducts) {
                 products = JSON.parse(savedProducts);
             } else {
-                const response = await fetch("products.json");
-                if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
-                products = await response.json();
-            }
-            renderFeaturedProduct(products);
-            renderProducts(products);
-        } catch (error) {
-            if (productContainer) {
-                productContainer.innerHTML = `<div class="error-box"><h3>Produk gagal dimuat</h3><p>${error.message}</p></div>`;
+                if (productContainer) {
+                    productContainer.innerHTML = `<div class="error-box"><h3>Produk gagal dimuat</h3><p>${error.message}</p></div>`;
+                }
+                return;
             }
         }
+        renderFeaturedProduct(products);
+        renderProducts(products);
     }
 
     priceFilter?.addEventListener("change", filterProducts);
