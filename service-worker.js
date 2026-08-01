@@ -1,4 +1,4 @@
-const CACHE_NAME = "anak-proyek-v4";
+const CACHE_NAME = "anak-proyek-v5";
 const APP_SHELL = [
     "./",
     "./index.html",
@@ -26,9 +26,12 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
     if (event.request.method !== "GET") return;
 
-    if (event.request.url.endsWith("products.json")) {
+    const requestUrl = new URL(event.request.url);
+    const isProductsJsonRequest = requestUrl.pathname.endsWith("/products.json") || requestUrl.pathname.endsWith("products.json");
+
+    if (isProductsJsonRequest) {
         event.respondWith(
-            fetch(event.request)
+            fetch(event.request, { cache: "no-store" })
                 .then(response => {
                     const copy = response.clone();
                     caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));

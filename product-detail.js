@@ -25,17 +25,18 @@ params.get(
 
 async function loadDetail(){
 
-
-const savedProducts = localStorage.getItem("anak_proyek_products");
 let products = [];
 
-if (savedProducts) {
-    products = JSON.parse(savedProducts);
-}
-
-if (!products.length) {
-    const response = await fetch("products.json");
+try {
+    const response = await fetch("products.json?ts=" + Date.now(), { cache: "no-store" });
+    if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
     products = await response.json();
+    localStorage.setItem("anak_proyek_products", JSON.stringify(products));
+} catch (error) {
+    const savedProducts = localStorage.getItem("anak_proyek_products");
+    if (savedProducts) {
+        products = JSON.parse(savedProducts);
+    }
 }
 
 

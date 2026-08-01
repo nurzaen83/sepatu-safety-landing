@@ -367,5 +367,14 @@
     "price": "Rp.122.878",
     "link": "https://s.shopee.co.id/W5VZ7pD0T",
     "description": "Working Trend - Sepatu Safety Pria Ujung Besi Kode G - 26"
+  },
+  {
+    "id": 1785562415392,
+    "name": "nabu ",
+    "category": "safety",
+    "image": "http://127.0.0.1:3000/uploads/1785562415392-nabu.jpg",  
+    "price": "Rp.129.000",
+    "link": "https://s.shopee.co.id/3LPgjlxhKE",
+    "description": "NABU SHOES Sepatu Olahraga Pria Import Berkualitas Sneakers Sport Pria Import 110"
   }
 ]

@@ -101,9 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadProducts() {
         try {
-            const response = await fetch("products.json");
+            const response = await fetch("products.json?ts=" + Date.now(), { cache: "no-store" });
             if (!response.ok) throw new Error("Produk tidak dapat dimuat.");
             products = await response.json();
+            localStorage.setItem("anak_proyek_products", JSON.stringify(products));
         } catch (error) {
             const savedProducts = localStorage.getItem("anak_proyek_products");
             if (savedProducts) {
